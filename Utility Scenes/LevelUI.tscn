@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/LevelClock.cs" type="Script" id=1]
+[ext_resource path="res://World/Bush_3.png" type="Texture" id=2]
+[ext_resource path="res://World/Bush_1.png" type="Texture" id=3]
+[ext_resource path="res://World/Bush_2.png" type="Texture" id=4]
+[ext_resource path="res://UI/TimerClock.png" type="Texture" id=5]
+
+[node name="LevelUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -256.0
+margin_bottom = -164.0
+
+[node name="LevelNumber" type="Label" parent="."]
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "Level 1"
+
+[node name="LevelClock" type="Control" parent="."]
+margin_left = 90.0
+margin_top = 5.0
+margin_right = 130.0
+margin_bottom = 45.0
+script = ExtResource( 1 )
+
+[node name="TimerSprite" type="Sprite" parent="LevelClock"]
+position = Vector2( 5, 6 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="TimeLabel" type="Label" parent="LevelClock"]
+margin_left = 13.0
+margin_right = 53.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "00:00"
+align = 1
+
+[node name="Timer" type="Timer" parent="LevelClock"]
+
+[node name="LevelBushes" type="Control" parent="."]
+margin_left = 103.0
+margin_top = 5.0
+margin_right = 143.0
+margin_bottom = 45.0
+
+[node name="BushSprites" type="Node2D" parent="LevelBushes"]
+position = Vector2( 88, 0 )
+
+[node name="BushSprite2" type="Sprite" parent="LevelBushes/BushSprites"]
+position = Vector2( -19, 3 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="BushSprite3" type="Sprite" parent="LevelBushes/BushSprites"]
+position = Vector2( -10, 3 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="BushSprite" type="Sprite" parent="LevelBushes/BushSprites"]
+position = Vector2( -15, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="BushLabel" type="Label" parent="LevelBushes"]
+margin_left = 88.0
+margin_right = 128.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "10 / 10"
+align = 1
